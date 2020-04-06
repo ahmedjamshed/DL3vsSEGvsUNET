@@ -63,7 +63,7 @@ In order to Evaluate SegNet, you need to run the following command.
 In order to Evaluate DeepLab V3+ , you need to run the following command.
 
 `python3 evaluateDeepLabV3p.py`
-Trained model for deepLab was too large to upload on github because of github restrictions of max 100mb file
+
 
 Following commands will evaluate the trained models on the basis of following metrics. 
 
