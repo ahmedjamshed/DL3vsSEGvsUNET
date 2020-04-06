@@ -5,6 +5,10 @@ This repository compares the performance of three convolutional neural networks 
 * DeepLabV3Plus
 * UNET
 * SegNet
+
+**What You Need to Know**
+
+If you want to check the superimposed results along with all the graphs in one place, you need to check the notebook file **DL3vsSEGvsUNET.ipynb - Colaboratory.pdf** available in this repository.
          
 **How to setup the environment** 
 
@@ -59,7 +63,7 @@ In order to Evaluate SegNet, you need to run the following command.
 In order to Evaluate DeepLab V3+ , you need to run the following command.
 
 `python3 evaluateDeepLabV3p.py`
-
+Trained model for deepLab was too large to upload on github because of github restrictions of max 100mb file
 
 Following commands will evaluate the trained models on the basis of following metrics. 
 
