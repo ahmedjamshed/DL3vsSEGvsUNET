@@ -30,7 +30,7 @@ On macOS and Linux:
 
 On Windows:
 
-`py -m venv CVSeg`
+`.\env\Scripts\activate`
 
 Install the required python libraries
 
