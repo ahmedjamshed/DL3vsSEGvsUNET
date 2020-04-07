@@ -30,7 +30,7 @@ On macOS and Linux:
 
 On Windows:
 
-`.\env\Scripts\activate`
+`.\CVSeg\Scripts\activate`
 
 Install the required python libraries
 
