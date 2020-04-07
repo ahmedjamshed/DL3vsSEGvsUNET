@@ -1,4 +1,5 @@
 CVSeg/
 cache/
 .vscode/
+*.pyc
 
