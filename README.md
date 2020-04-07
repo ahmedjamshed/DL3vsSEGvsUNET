@@ -14,13 +14,9 @@ If you want to check the superimposed results along with all the graphs in one p
 
 Run this on command to create a python virtual environment with the name CVSeg
 
-On macOS and Linux:
+**On Windows use --py-- instead of --python3--** 
 
 `python3 -m venv CVSeg`
-
-On Windows:
-
-`py -m venv CVSeg`
 
 Shift your current environment to CVSeg by running this command
 
