@@ -32,17 +32,18 @@ Install the required python libraries
 
 `pip3 install -r requirements.txt`
 
-Images that are provided in dataset have the dimensions 1000x1000 which are too big. We need to divide the images in multiple patches of size 128x128 for which we first need to resize the image to 1024x1024 and then we need to extract 64 128x128 patches from 1024x1024 image and then we need to save this images data to cache folder so that these cache images can be used later. To do all this work, run the following command.
+**About the Dataset**
+
+Images that are provided in dataset have the dimensions 1000x1000 which are too big. We need to divide the images in multiple patches of size 128x128 for which we first need to resize the image to 1024x1024 and then we need to extract 64 128x128 patches from 1024x1024 image and then we need to save this images data to cache folder so that these cache images can be used later. Images are also rotated to 90deg,180deg and 270deg to introduce varaince in data. To do all this work, run the following command. 
 
 `python3 ./munge/preprocess.py`
-
-
-**About the Dataset**
 
 This dataset is used for Semantic segmentation of nuclei in digital histology images.
 Monuseg dataset available at https://monuseg.grand-challenge.org/Data/
 
 **How to train**
+
+**Loss Fn:** Hybrid loss function is used in which 30% weightage is given to dice loss and 70% to binary cross entropy
 
 In order to train UNET, you need to run the following command.
 
