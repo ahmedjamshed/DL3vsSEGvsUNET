@@ -28,9 +28,10 @@ On Windows:
 
 `.\CVSeg\Scripts\activate`
 
-if ".../Activate.ps1 cannot be loaded because running scripts is disabled on this system" error occurs then 
+if ".../Activate.ps1 cannot be loaded because running scripts is disabled on this system" error occurs then run
 
 `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted`
+
 `.\CVSeg\Scripts\activate`
 
 Install the required python libraries
