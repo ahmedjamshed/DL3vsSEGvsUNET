@@ -1,7 +1,8 @@
 from tensorflow.python.keras.models import load_model
 from lib.datahelper import loadDataFromCache
 from lib.metrics import get_f1, iou_coef, dice_coef, dice_coef_loss, allMetrics
-
+from lib.plotting import plot_sample
+import numpy as np
 from models import uNet
 from tensorflow.python.keras.layers import Input
 import configparser
@@ -24,3 +25,30 @@ print("Accuracy: ",  acc)
 print("F1: ", f1 )
 print("IOU: ", iou_coef )
 print("DICE: ", dice )
+print("Results Saving IN Graphs Folder")
+
+modelNameFT =  "UNET_Train"
+modelNameFV =  "UNET_Validation"
+
+preds_train = uNetModel.predict(X_train, verbose=1)
+preds_val = uNetModel.predict(X_valid, verbose=1)
+
+preds_train_t = (preds_train > 0.5).astype(np.uint8)
+preds_val_t = (preds_val > 0.5).astype(np.uint8)
+
+plot_sample(X_train, y_train, preds_train, preds_train_t, modelNameFT, ix=14)
+plot_sample(X_valid, y_valid, preds_val, preds_val_t, modelNameFV, ix=19)
+plot_sample(X_train, y_train, preds_train, preds_train_t, modelNameFT)
+plot_sample(X_valid, y_valid, preds_val, preds_val_t, modelNameFV)
+plot_sample(X_train, y_train, preds_train, preds_train_t, modelNameFT)
+plot_sample(X_valid, y_valid, preds_val, preds_val_t, modelNameFV)
+plot_sample(X_train, y_train, preds_train, preds_train_t, modelNameFT)
+plot_sample(X_valid, y_valid, preds_val, preds_val_t, modelNameFV)
+plot_sample(X_train, y_train, preds_train, preds_train_t, modelNameFT)
+plot_sample(X_valid, y_valid, preds_val, preds_val_t, modelNameFV)
+plot_sample(X_train, y_train, preds_train, preds_train_t, modelNameFT)
+plot_sample(X_valid, y_valid, preds_val, preds_val_t, modelNameFV)
+plot_sample(X_train, y_train, preds_train, preds_train_t, modelNameFT)
+plot_sample(X_valid, y_valid, preds_val, preds_val_t, modelNameFV)
+plot_sample(X_train, y_train, preds_train, preds_train_t, modelNameFT)
+plot_sample(X_valid, y_valid, preds_val, preds_val_t, modelNameFV)
