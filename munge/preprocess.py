@@ -51,8 +51,6 @@ def prepareData():
         x_img = rotate(x_img, 270)
         crop_img(x_img, iid+"270deg", True)
 
-        x_img = rotate(x_img, 270)
-        crop_img(x_img, iid+"270deg", True)
         # Load masks
         mask = img_to_array(load_img(actualMaskPath+iid+"_bin_mask.png", color_mode="grayscale"))
 
@@ -60,13 +58,13 @@ def prepareData():
         crop_img(mask,iid, False)
         
         mask = rotate(mask, 90)
-        crop_img(mask, iid+"90deg", True)
+        crop_img(mask, iid+"90deg", False)
 
         mask = rotate(mask, 180)
-        crop_img(mask, iid+"180deg", True)
+        crop_img(mask, iid+"180deg", False)
 
         mask = rotate(mask, 270)
-        crop_img(mask, iid+"270deg", True)
+        crop_img(mask, iid+"270deg", False)
         
 
 prepareData()
