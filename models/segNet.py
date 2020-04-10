@@ -30,7 +30,7 @@ def conv2d_block(input_tensor, n_filters, kernel_size = 3, batchnorm = True, sec
 
     
 
-def SegNet(classes=1):
+def SegNet(classes=1, dropout=0.4):
     input_img = Input((croppedImageSize, croppedImageSize, 1), name='img')
     # Encoder
     x = conv2d_block(input_img, 64, kernel_size = 3)
@@ -43,7 +43,7 @@ def SegNet(classes=1):
     x = MaxPooling2D(pool_size=(2, 2))(x)
     
     x = conv2d_block(x, 512, kernel_size = 3)
-    
+    x = Dropout(dropout)(x)
     # Decoder
     x = conv2d_block(x, 512, kernel_size = 3)
     
@@ -55,7 +55,7 @@ def SegNet(classes=1):
     
     x = UpSampling2D(size=(2, 2))(x)
     x = conv2d_block(x, 64, kernel_size = 3)
-
+    x = Dropout(dropout)(x)
     x = Conv2D(1, (1, 1), activation='sigmoid')(x)
     model = Model(inputs=[input_img],  outputs=[x])
     return model
