@@ -1,6 +1,6 @@
 from tensorflow.python.keras.models import load_model
 from lib.datahelper import loadDataFromCache
-from lib.metrics import get_f1, iou_coef, dice_coef, dice_coef_loss, allMetrics
+from lib.metrics import get_f1, iou_coef, dice_coef, dice_coef_loss, allMetrics, hybrid_loss
 from lib.plotting import plot_sample
 import numpy as np
 from models import uNet
@@ -14,7 +14,7 @@ X_train, X_valid, y_train, y_valid = loadDataFromCache()
 
 input_img = Input((croppedImageSize, croppedImageSize, 1), name='imga')
 uNetModel = uNet.get_unet(input_img, n_filters=16, dropout=0.05, batchnorm=True)
-uNetModel.compile(optimizer='adam', loss=dice_coef_loss, metrics=["accuracy", get_f1, iou_coef, dice_coef])
+uNetModel.compile(optimizer='adam', loss=hybrid_loss, metrics=["accuracy", get_f1, iou_coef, dice_coef])
 uNetModel.load_weights('./trainedModels/model-uNet.h5')
 
 

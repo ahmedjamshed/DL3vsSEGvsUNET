@@ -1,4 +1,5 @@
 from keras import backend as K
+from tensorflow.python.keras.losses import binary_crossentropy
 # Metrics and Losses
 def iou_coef(y_true, y_pred, smooth=1):
   intersection = K.sum(K.abs(y_true * y_pred), axis=[1,2,3])
@@ -15,6 +16,10 @@ def dice_coef(y_true, y_pred, smooth=1):
 def dice_coef_loss(y_true, y_pred):
     res = dice_coef(y_true, y_pred)
     return -res
+
+def hybrid_loss(y_true, y_pred):
+    res = dice_coef(y_true, y_pred)
+    return (-0.3*res) + (0.7*binary_crossentropy(y_true, y_pred, from_logits=False, label_smoothing=0))
 
 def get_f1(y_true, y_pred):
     true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
