@@ -36,10 +36,10 @@ def SegNet(classes=1):
     x = conv2d_block(input_img, 64, kernel_size = 3)
     x = MaxPooling2D(pool_size=(2, 2))(x)
     
-    x = conv2d_block(x, 128, kernel_size = 3, secondLayer=False)
+    x = conv2d_block(x, 128, kernel_size = 3)
     x = MaxPooling2D(pool_size=(2, 2))(x)
     
-    x = conv2d_block(x, 256, kernel_size = 3, secondLayer=False)
+    x = conv2d_block(x, 256, kernel_size = 3)
     x = MaxPooling2D(pool_size=(2, 2))(x)
     
     x = conv2d_block(x, 512, kernel_size = 3)
@@ -48,10 +48,10 @@ def SegNet(classes=1):
     x = conv2d_block(x, 512, kernel_size = 3)
     
     x = UpSampling2D(size=(2, 2))(x)
-    x = conv2d_block(x, 256, kernel_size = 3, secondLayer=False)
+    x = conv2d_block(x, 256, kernel_size = 3)
     
     x = UpSampling2D(size=(2, 2))(x)
-    x = conv2d_block(x, 128, kernel_size = 3, secondLayer=False)
+    x = conv2d_block(x, 128, kernel_size = 3)
     
     x = UpSampling2D(size=(2, 2))(x)
     x = conv2d_block(x, 64, kernel_size = 3)
