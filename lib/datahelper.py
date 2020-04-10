@@ -30,7 +30,7 @@ def loadDataFromCache():
         # # Save images
         imgs[n] = x_img/255.0
         gts[n] = mask/255.0
-    return train_test_split(imgs, gts, test_size=0.1, random_state=42)
+    return train_test_split(imgs, gts, test_size=0.3, random_state=42)
 
 def loadTestData(): 
     ids = next(os.walk(testImagePath))[2] # list of names all images in the given path
