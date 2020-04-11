@@ -2,7 +2,7 @@ from models import deepLab
 from lib.callbacks import getCallbacks
 from lib.datahelper import loadDataFromCache
 from lib.plotting import plotGraph
-from lib.metrics import get_f1, iou_coef, dice_coef, dice_coef_loss
+from lib.metrics import get_f1, iou_coef, dice_coef, dice_coef_loss, hybrid_loss
 
 import configparser
 config = configparser.ConfigParser()
