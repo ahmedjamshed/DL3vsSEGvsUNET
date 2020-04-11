@@ -88,10 +88,10 @@ Following commands will evaluate the trained models on the basis of following me
 * IOU (Intersection over Union Coefficient)
 * DICE Coefficient
 
-Segmentation results of original UNET model.
+Segmentation results of original UNET and SegNet model.
 <p align="center">
-    <img src="graphs/res1.png" width=600></br>
-    <img src="graphs/res2.png" width=600></br>
-    <img src="graphs/res3.png" width=600></br>
+    <img src="graphs/SEGNET_Train_res7.png" width=600></br>
+    <img src="graphs/UNET_Validation_res19.png" width=600></br>
+    <img src="graphs/UNET_Validation_res132.png" width=600></br>
 </p>
 
