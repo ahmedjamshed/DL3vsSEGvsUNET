@@ -12,7 +12,7 @@ If you want to check the superimposed results along with all the graphs in one p
          
 **How to setup the environment** 
 
-Run this on command to create a python virtual environment with the name CVSeg
+Tested on Python v3.7.6, Run this on command to create a python virtual environment with the name CVSeg
 
 **IMPORTANT: On Windows use "py" instead of "python3"** 
 
@@ -25,6 +25,12 @@ On macOS and Linux:
 `source CVSeg/bin/activate`
 
 On Windows:
+
+`.\CVSeg\Scripts\activate`
+
+if ".../Activate.ps1 cannot be loaded because running scripts is disabled on this system" error occurs then run
+
+`Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted`
 
 `.\CVSeg\Scripts\activate`
 
