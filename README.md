@@ -12,7 +12,7 @@ If you want to check the superimposed results along with all the graphs in one p
          
 **How to setup the environment** 
 
-Run this on command to create a python virtual environment with the name CVSeg
+Tested on Python v3.7.6, Run this on command to create a python virtual environment with the name CVSeg
 
 **IMPORTANT: On Windows use "py" instead of "python3"** 
 
