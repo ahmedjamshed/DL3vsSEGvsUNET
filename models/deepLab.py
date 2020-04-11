@@ -196,8 +196,8 @@ def _inverted_res_block(inputs, expansion, stride, alpha, filters, block_id, ski
     return x
 
 
-def Deeplabv3(input_shape=(512, 512, 3), weights=None, input_tensor=None, classes=21, backbone='mobilenetv2',
-              OS=16, alpha=.5, activation=None):
+def Deeplabv3(input_shape=(512, 512, 3), weights=None, input_tensor=None, classes=21, backbone='xception',
+              OS=16, alpha=.8, activation='sigmoid'):
     """ Instantiates the Deeplabv3+ architecture
     Optionally loads weights pre-trained
     on PASCAL VOC or Cityscapes. This model is available for TensorFlow only.
