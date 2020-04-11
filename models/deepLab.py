@@ -196,7 +196,7 @@ def _inverted_res_block(inputs, expansion, stride, alpha, filters, block_id, ski
     return x
 
 
-def Deeplabv3(input_shape=(512, 512, 3), weights=None, input_tensor=None, classes=21, backbone='xception',
+def Deeplabv3(input_shape=(512, 512, 3), weights=None, input_tensor=None, classes=21, backbone='mobilenetv2',
               OS=16, alpha=.8, activation='sigmoid'):
     """ Instantiates the Deeplabv3+ architecture
     Optionally loads weights pre-trained
@@ -288,6 +288,7 @@ def Deeplabv3(input_shape=(512, 512, 3), weights=None, input_tensor=None, classe
         x = _xception_block(x, [1536, 1536, 2048], 'exit_flow_block2',
                             skip_connection_type='none', stride=1, rate=exit_block_rates[1],
                             depth_activation=True)
+        x = Dropout(0.4)(x)
 
     else:
         OS = 8
@@ -341,7 +342,7 @@ def Deeplabv3(input_shape=(512, 512, 3), weights=None, input_tensor=None, classe
 
         x = _inverted_res_block(x, filters=320, alpha=alpha, stride=1, rate=4,
                                 expansion=6, block_id=16, skip_connection=False)
-
+        x = Dropout(0.4)(x)
     # end of feature extractor
 
     # branching for Atrous Spatial Pyramid Pooling
@@ -386,7 +387,7 @@ def Deeplabv3(input_shape=(512, 512, 3), weights=None, input_tensor=None, classe
                use_bias=False, name='concat_projection')(x)
     x = BatchNormalization(name='concat_projection_BN', epsilon=1e-5)(x)
     x = Activation('relu')(x)
-    x = Dropout(0.1)(x)
+    x = Dropout(0.4)(x)
     # DeepLab v.3+ decoder
 
     if backbone == 'xception':
@@ -407,7 +408,7 @@ def Deeplabv3(input_shape=(512, 512, 3), weights=None, input_tensor=None, classe
                        depth_activation=True, epsilon=1e-5)
         x = SepConv_BN(x, 256, 'decoder_conv1',
                        depth_activation=True, epsilon=1e-5)
-
+        x = Dropout(0.4)(x)
     # you can use it with arbitary number of classes
     if (weights == 'pascal_voc' and classes == 21) or (weights == 'cityscapes' and classes == 19):
         last_layer_name = 'logits_semantic'
