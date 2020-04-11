@@ -65,6 +65,11 @@ In order to train DeepLab V3+ , you need to run the following command.
 
 Following commands will save the trained models to **trainedModels** folder with the file extensions **.h5** and the training graphs will be stored in **graphs** folder that will show you how model acquired accuracy after each epoch.
 
+<p align="center">
+    <img src="graphs/UNETTraining.png" width=600></br>
+    <img src="graphs/SegNetTraining.png" width=600></br>
+</p>
+
 **How to Evaluate the saved models**
 
 In order to Evaluate UNET, you need to run the following command.
